@@ -1,0 +1,10 @@
+<p>Here are images</p>
+
+<div *ngIf='images != undefined' >
+  <p *ngFor="let key of objectKeys(images)">
+
+    <img [src]=" images[key] | safe: 'imageSrc' ">
+  </p>
+  
+  <img [src]="images['1200px-Rainbow-diagram-ROYGBIV.svg.png'] | safe: 'imageSrc' ">
+</div>
