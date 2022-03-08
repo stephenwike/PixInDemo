@@ -10,7 +10,7 @@ import { DomSanitizer } from '@angular/platform-browser';
 export class PixinService {
 
 
-  endpoint = 'https://localhost:5001/api/images/';
+  endpoint = 'http://fireshellstudio.us:45467/api/images/';
   imageData: any;
   sanitizedImageData: any;
   images: string[];
@@ -28,9 +28,8 @@ export class PixinService {
     return res || { };
   }
 
-  public getImages(path: string): Observable<any> {
-    const fullpath: string  = 'https://localhost:5001/api/images/' + path;
-    return this.http.get(fullpath)
+  public getImages(folder: string): Observable<any> {
+    return this.http.post(this.endpoint, { 'folder': folder })
     .pipe(
       map(this.extractData),
       catchError(this.handleError));

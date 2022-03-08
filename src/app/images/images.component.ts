@@ -20,7 +20,7 @@ export class ImagesComponent implements OnInit {
   constructor(private service: PixinService) { }
 
   ngOnInit() {
-    this.service.getImages('Rainbow').subscribe(
+    this.service.getImages('Catan-ResCards').subscribe(
       data => {
         this.images = data;
         console.log(this.images);
